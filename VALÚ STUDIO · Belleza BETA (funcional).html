@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>VALÚ STUDIO · Belleza en Cocula</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap">
+<style>
+:root{--bg:#fbf6f3;--bg2:#f4e8e6;--card:#fff;--tx:#2a2125;--mut:#7b6b71;--ac:#b4536c;--ac2:#f2dce2;--bd:#ead9dd;--nav:rgba(251,246,243,.88);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#191316;--bg2:#211a1e;--card:#271e23;--tx:#f6edf0;--mut:#b5a3aa;--ac:#e68fa7;--ac2:#3b2830;--bd:#3a2d33;--nav:rgba(25,19,22,.88);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#191316;--bg2:#211a1e;--card:#271e23;--tx:#f6edf0;--mut:#b5a3aa;--ac:#e68fa7;--ac2:#3b2830;--bd:#3a2d33;--nav:rgba(25,19,22,.88);color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Inter,system-ui,sans-serif;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--nav);backdrop-filter:blur(10px);z-index:30}
+h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;margin:0;line-height:1.1}h2,h3{font-family:"Playfair Display",Georgia,serif;font-weight:600;margin:0;line-height:1.2}
+a{color:inherit}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--nav);backdrop-filter:blur(10px);border-bottom:1px solid var(--bd)}
+.nv{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
+.brand{font:600 22px "Cormorant Garamond",Georgia,serif;letter-spacing:.14em;text-decoration:none}
+.links{display:flex;gap:18px;font-size:14px}
+.links a{text-decoration:none;color:var(--mut)}
+.links a:hover{color:var(--ac)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 22px;border-radius:999px;font:600 14px Inter,sans-serif;text-decoration:none;border:1.5px solid var(--ac);cursor:pointer;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.pri{background:var(--ac);color:#fff}
+.sec{background:transparent;color:var(--ac)}
+.sm{padding:9px 16px;font-size:13px}
+@media(max-width:640px){.links{display:none}}
+.hero{position:relative;overflow:hidden;text-align:center;padding:86px 20px 96px;background:linear-gradient(160deg,var(--bg2),var(--ac2))}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;filter:blur(50px);opacity:.55}
+.hero::before{width:300px;height:300px;background:var(--ac);top:-90px;left:-80px;opacity:.3}
+.hero::after{width:260px;height:260px;background:#e9b98f;bottom:-90px;right:-60px;opacity:.35}
+.hero>*{position:relative;z-index:1}
+.eye{font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--ac);font-weight:600}
+.hero h1{font-size:clamp(46px,11vw,92px);letter-spacing:.08em;margin:14px 0}
+.hero h1 em{display:block;font-size:.38em;letter-spacing:.04em;color:var(--mut);font-weight:500;margin-top:8px}
+.hero p{max-width:480px;margin:0 auto 26px;color:var(--mut)}
+.cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:34px;font-size:13px;color:var(--mut)}
+.chips span{background:var(--card);border:1px solid var(--bd);padding:7px 14px;border-radius:999px}
+section{padding:70px 18px}
+.in{max-width:1000px;margin:0 auto}
+.ttl{text-align:center;margin-bottom:34px}
+.ttl h2{font-size:clamp(32px,6vw,46px)}
+.ttl p{color:var(--mut);margin:8px 0 0}
+.alt{background:var(--bg2)}
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.sv{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:26px 22px;transition:transform .25s,box-shadow .25s}
+.sv:hover{transform:translateY(-5px);box-shadow:0 14px 34px rgba(180,83,108,.14)}
+.ic{width:52px;height:52px;border-radius:16px;background:var(--ac2);display:grid;place-items:center;margin-bottom:14px}
+.ic svg{width:26px;height:26px;stroke:var(--ac);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.sv h3{font-size:25px;margin-bottom:6px}
+.sv p{color:var(--mut);font-size:14px;margin:0 0 16px}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ph{aspect-ratio:1;border-radius:18px;border:0;cursor:pointer;position:relative;overflow:hidden;color:#fff;font:600 22px "Cormorant Garamond",Georgia,serif;display:grid;place-items:end start;padding:14px;text-align:left;transition:transform .25s}
+.ph:hover{transform:scale(1.03)}
+.ph::before{content:"";position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:rgba(255,255,255,.2);top:-18%;right:-18%}
+.ph:nth-child(1){background:linear-gradient(145deg,#d98aa0,#8c3b55)}
+.ph:nth-child(2){background:linear-gradient(145deg,#e9b98f,#b5654a)}
+.ph:nth-child(3){background:linear-gradient(145deg,#c9a0c9,#6d4572)}
+.ph:nth-child(4){background:linear-gradient(145deg,#f0c1c9,#c26a82)}
+.ph:nth-child(5){background:linear-gradient(145deg,#b9a38a,#6e5642)}
+.ph:nth-child(6){background:linear-gradient(145deg,#e7a9b8,#a24764)}
+.ph span{position:relative;z-index:1;text-shadow:0 1px 8px rgba(0,0,0,.25)}
+.lb{position:fixed;inset:0;background:rgba(10,6,8,.86);z-index:50;display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}
+.lb div{width:min(92vw,520px);aspect-ratio:1;border-radius:22px;display:grid;place-items:end start;padding:26px;color:#fff;font:600 34px "Cormorant Garamond",Georgia,serif}
+.lb button{position:absolute;background:rgba(255,255,255,.16);border:0;color:#fff;width:46px;height:46px;border-radius:50%;font-size:22px;cursor:pointer}
+.lb .x{top:calc(env(safe-area-inset-top,0px) + 16px);right:16px}
+.lb .pv{left:12px}.lb .nx{right:12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;text-align:center}
+.steps b{display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ac);color:#fff;margin:0 auto 10px;font:600 20px "Cormorant Garamond",serif}
+.steps p{color:var(--mut);font-size:14px;margin:4px 0 0}
+.bk{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--bd);border-radius:26px;padding:24px}
+.bk h3{font-size:22px;margin:20px 0 10px}
+.bk h3:first-child{margin-top:0}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.opt{border:1.5px solid var(--bd);background:var(--bg);color:var(--tx);border-radius:14px;padding:13px 8px;font:500 14px Inter,sans-serif;cursor:pointer;transition:.15s}
+.opt[aria-pressed="true"]{border-color:var(--ac);background:var(--ac2);color:var(--tx);font-weight:600}
+.days{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.days .opt{min-width:66px;flex:0 0 auto}
+.days small{display:block;color:var(--mut);font-size:11px;text-transform:uppercase}
+.slots{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+input{width:100%;padding:14px;border-radius:14px;border:1.5px solid var(--bd);background:var(--bg);color:var(--tx);font:400 15px Inter,sans-serif}
+.sum{background:var(--ac2);border-radius:14px;padding:13px 15px;font-size:14px;margin:14px 0;font-weight:500}
+.bk .btn{width:100%}
+.off{opacity:.4;pointer-events:none}
+.note{color:var(--mut);font-size:12px;margin:10px 0 0}
+.ct{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.box{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:24px}
+.box h3{font-size:25px;margin-bottom:10px}
+.box p{margin:6px 0;color:var(--mut);font-size:14px}
+.box .btn{margin:6px 6px 0 0}
+.faq details{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px 18px;margin-bottom:10px}
+.faq summary{cursor:pointer;font-weight:600;font-size:15px}
+.faq p{color:var(--mut);font-size:14px;margin:8px 0 0}
+footer{text-align:center;padding:30px 18px 100px;color:var(--mut);font-size:12px}
+.fab{position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:25;background:#25a35a;color:#fff;border-radius:999px;padding:14px 20px;font:600 14px Inter,sans-serif;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.rv.in2{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.btn,.sv,.ph{transition:none}}
+body{font-family:Manrope,Inter,system-ui,sans-serif}
+.btn,.opt,input,.fab,.chips{font-family:Manrope,Inter,system-ui,sans-serif}
+.hero,.hero .btn,.hero .chips{font-family:Inter,system-ui,sans-serif}
+.ttl h2{font-size:clamp(28px,5.5vw,40px);letter-spacing:-.01em}
+.ttl p{font-size:15px}
+.sv h3,.box h3{font-size:21px}
+.steps h3{font-size:19px}
+.steps b{font-family:Manrope,sans-serif;font-weight:700;font-size:18px}
+.ph{font-family:"Playfair Display",Georgia,serif;font-size:18px}
+.lb div{font-family:"Playfair Display",Georgia,serif;font-size:30px}
+.faq summary{font-weight:700}
+.bk{max-width:900px;display:grid;grid-template-columns:1.5fr 1fr;gap:28px;padding:30px;box-shadow:0 22px 56px rgba(180,83,108,.12)}
+@media(max-width:760px){.bk{grid-template-columns:1fr;padding:20px}}
+.stp{margin-bottom:28px}
+.stp:last-child{margin-bottom:0}
+.stp h3{display:flex;align-items:center;gap:10px;font-size:19px;margin:0 0 14px}
+.stp h3 i{font:700 13px Manrope,sans-serif;font-style:normal;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--ac);color:#fff}
+#o1{grid-template-columns:1fr}
+#o1 .opt{text-align:left;padding:15px 18px;display:flex;justify-content:space-between;align-items:center;font-size:15px}
+#o1 .opt[aria-pressed="true"]::after{content:"✓";color:var(--ac);font-weight:800}
+.days .opt{min-width:72px;padding:12px 6px;border-radius:16px;font-size:22px;font-weight:700;line-height:1.1}
+.days small{font-size:10px;letter-spacing:.08em;font-weight:600;margin-bottom:2px}
+.slots .opt{padding:11px 4px;border-radius:12px;font-weight:600}
+.opt:hover{border-color:var(--ac)}
+.br{background:var(--bg);border:1px solid var(--bd);border-radius:22px;padding:22px;align-self:start;position:sticky;top:calc(env(safe-area-inset-top,0px) + 80px)}
+.br h3{font-size:22px;margin-bottom:6px}
+.br .sum{background:none;padding:0;margin:0 0 16px;border-radius:0}
+.sr{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--bd);font-size:14px}
+.sr span{color:var(--mut)}
+.sr b{text-align:right;font-weight:700}
+.br label{display:block;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);margin:0 0 6px}
+.br input{margin-bottom:14px}
+/* ---- Responsive y simetria ---- */
+.bl,.br,.stp{min-width:0}
+.bk{grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);margin-left:auto;margin-right:auto;width:100%}
+#o1{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#o1 .opt{min-height:56px}
+.days{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;overflow:visible;padding:0}
+.days .opt{min-width:0;width:100%}
+.slots{grid-template-columns:repeat(3,minmax(0,1fr))}
+.slots .opt{min-height:46px}
+.opt{min-height:44px}
+.grid4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.steps{grid-template-columns:repeat(3,minmax(0,1fr))}
+.ct{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sv{display:flex;flex-direction:column;align-items:flex-start}
+.sv p{flex:1}
+.box{display:flex;flex-direction:column;align-items:flex-start}
+.box .btn{margin:6px 6px 0 0}
+input{font-size:16px;min-height:48px}
+@media(max-width:1023px){.grid4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:899px){
+ .bk{grid-template-columns:minmax(0,1fr);max-width:620px;padding:22px;gap:22px}
+ .br{position:static}
+ .ct{grid-template-columns:minmax(0,1fr);max-width:620px;margin:0 auto}
+}
+@media(max-width:699px){
+ .steps{grid-template-columns:minmax(0,1fr);max-width:360px;margin:0 auto}
+ section{padding:54px 16px}
+ .hero{padding:64px 18px 72px}
+ .gal{gap:8px}
+ .ph{font-size:15px;padding:10px;border-radius:14px}
+}
+@media(max-width:560px){
+ .grid4{grid-template-columns:minmax(0,1fr)}
+ #o1{grid-template-columns:minmax(0,1fr)}
+ .days{grid-template-columns:repeat(4,minmax(0,1fr))}
+ .bk{padding:18px;border-radius:22px}
+ .fab{padding:13px 16px}
+}
+@media(max-width:360px){.days{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<nav><div class="nv"><a class="brand" href="#top">VALÚ</a>
+<div class="links"><a href="#servicios">Servicios</a><a href="#galeria">Galería</a><a href="#reservar">Reservar</a><a href="#contacto">Contacto</a></div>
+<a class="btn pri sm" href="#reservar">Reservar</a></div></nav>
+
+<header class="hero" id="top">
+<div class="eye">Cocula · Jalisco</div>
+<h1>VALÚ STUDIO<em>Realza tu belleza natural</em></h1>
+<p>Maquillaje, coloración y cuidado corporal en un espacio pensado para que te sientas increíble.</p>
+<div class="cta"><a class="btn pri" href="#reservar">Reserva tu cita</a><a class="btn sec" href="#servicios">Ver servicios</a></div>
+<div class="chips"><span>💄 Maquillaje</span><span>👰 Novias</span><span>🎨 Coloración</span><span>✨ Body sculpting</span></div>
+</header>
+
+<section id="servicios"><div class="in">
+<div class="ttl rv"><h2>Nuestros servicios</h2><p>Elige uno y reserva en segundos</p></div>
+<div class="grid4" id="svc"></div>
+</div></section>
+
+<section class="alt" id="galeria"><div class="in">
+<div class="ttl rv"><h2>Galería</h2><p>Toca una imagen para verla en grande</p></div>
+<div class="gal rv" id="gal"></div>
+<p class="note" style="text-align:center">Imágenes ilustrativas. Aquí se colocarán las fotos reales del estudio.</p>
+</div></section>
+
+<section><div class="in">
+<div class="ttl rv"><h2>Así de fácil</h2></div>
+<div class="steps rv">
+<div><b>1</b><h3>Elige</h3><p>Servicio, día y hora</p></div>
+<div><b>2</b><h3>Envía</h3><p>Se abre WhatsApp con tu solicitud lista</p></div>
+<div><b>3</b><h3>Confirma</h3><p>El estudio te responde y listo</p></div>
+</div></div></section>
+
+<section class="alt" id="reservar"><div class="in">
+<div class="ttl rv"><h2>Reserva tu cita</h2><p>Sin llamadas ni esperas</p></div>
+<div class="bk rv">
+<div class="bl">
+<div class="stp"><h3><i>1</i>Elige tu servicio</h3><div class="opts" id="o1"></div></div>
+<div class="stp"><h3><i>2</i>Elige el día</h3><div class="days" id="o2"></div></div>
+<div class="stp"><h3><i>3</i>Elige la hora</h3><div class="slots" id="o3"></div></div>
+</div>
+<aside class="br">
+<h3>Tu cita</h3>
+<div class="sum" id="sum"></div>
+<label for="nm">Tu nombre</label><input id="nm" placeholder="Escribe tu nombre" autocomplete="name">
+<a class="btn pri off" id="go" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+<p class="note">Horarios de ejemplo para la demostración. La cita queda confirmada cuando el estudio te responde.</p>
+</aside>
+</div></div></section>
+
+<section><div class="in faq">
+<div class="ttl rv"><h2>Preguntas frecuentes</h2></div>
+<div class="rv">
+<details><summary>¿Cómo confirmo mi cita?</summary><p>Envías tu solicitud por WhatsApp y el estudio te confirma disponibilidad por el mismo chat.</p></details>
+<details><summary>¿Dónde están ubicados?</summary><p>En Agustín Yáñez 246, San Juan, Cocula, Jalisco. Usa el botón “Cómo llegar” en la sección de contacto.</p></details>
+<details><summary>¿Puedo preguntar precios antes de reservar?</summary><p>Claro, escribe por WhatsApp y te los comparten según el servicio.</p></details>
+<details><summary>¿Atienden maquillaje para novias?</summary><p>Sí, es uno de los servicios. Reserva con anticipación para asegurar tu fecha.</p></details>
+</div></div></section>
+
+<section class="alt" id="contacto"><div class="in">
+<div class="ttl rv"><h2>Visítanos</h2></div>
+<div class="ct rv">
+<div class="box"><h3>Contacto</h3>
+<p>📍 Agustín Yáñez 246, San Juan<br>48500 Cocula, Jalisco</p>
+<p>📞 375 113 9302</p>
+<a class="btn pri sm" href="tel:+523751139302">Llamar</a><a class="btn sec sm" id="wa2" target="_blank" rel="noopener">WhatsApp</a>
+<a class="btn sec sm" href="https://maps.app.goo.gl/caz3CVdT8W1VG6dL6" target="_blank" rel="noopener">Cómo llegar</a></div>
+<div class="box"><h3>Compartir</h3><p>Manda este estudio a una amiga.</p>
+<button class="btn pri sm" id="cp" type="button">Copiar dirección</button></div>
+</div></div></section>
+
+<footer>© VALÚ STUDIO · Página de demostración creada por Christian</footer>
+<a class="fab" id="wa3" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<div class="lb" id="lb"><button class="x" id="lx" aria-label="Cerrar">✕</button><button class="pv" id="lp" aria-label="Anterior">‹</button><div id="lc"></div><button class="nx" id="ln" aria-label="Siguiente">›</button></div>
+
+<script>
+var P="523751139302",W="https://wa.me/"+P;
+var $=function(i){return document.getElementById(i)};
+var S=[
+["Maquillaje","Looks para eventos, graduaciones y día a día.","M12 3l2.5 5 5.5.8-4 3.9.9 5.5L12 15.6 7.1 18.2 8 12.7 4 8.8 9.5 8z"],
+["Maquillaje de novia","Tu día especial con un acabado impecable.","M12 21s-7-4.5-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.5-7 10-7 10z"],
+["Body sculpting","Cuidado corporal para sentirte mejor.","M12 3c3 3 3 6 0 9-3 3-3 6 0 9M6 8c2 2 2 5 0 8M18 8c-2 2-2 5 0 8"],
+["Coloración y balayage","Tonos y luminosidad para tu cabello.","M4 20l9-9 3 3-9 9H4zM14 6l3-3 4 4-3 3z"]];
+var G=["Maquillaje","Novias","Balayage","Glam","Cuidado corporal","Tu estilo"];
+var GC=["#d98aa0,#8c3b55","#e9b98f,#b5654a","#c9a0c9,#6d4572","#f0c1c9,#c26a82","#b9a38a,#6e5642","#e7a9b8,#a24764"];
+var st={s:null,d:null,h:null};
+S.forEach(function(s,i){
+ var d=document.createElement("div");d.className="sv rv";
+ d.innerHTML='<div class="ic"><svg viewBox="0 0 24 24"><path d="'+s[2]+'"/></svg></div><h3>'+s[0]+'</h3><p>'+s[1]+'</p><button class="btn sec sm" type="button">Reservar</button>';
+ d.querySelector("button").onclick=function(){pick("o1",i);st.s=S[i][0];upd();$("reservar").scrollIntoView()};
+ $("svc").appendChild(d);
+});
+function pick(box,i){var e=$(box).querySelectorAll(".opt");e.forEach(function(x,j){x.setAttribute("aria-pressed",j===i?"true":"false")})}
+function mk(box,items,fn,html){
+ items.forEach(function(it,i){
+  var b=document.createElement("button");b.type="button";b.className="opt";b.setAttribute("aria-pressed","false");
+  b.innerHTML=html?html(it):it;
+  b.onclick=function(){pick(box,i);fn(it);upd()};
+  $(box).appendChild(b);
+ });
+}
+var DN=["dom","lun","mar","mié","jue","vie","sáb"],MN=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+var days=[];for(var i=1;i<=14;i++){var d=new Date();d.setDate(d.getDate()+i);if(d.getDay()!==0)days.push(d)}
+mk("o1",S.map(function(s){return s[0]}),function(v){st.s=v});
+mk("o2",days,function(v){st.d=v},function(v){return"<small>"+DN[v.getDay()]+"</small>"+v.getDate()+" "+MN[v.getMonth()]});
+mk("o3",["10:00","11:00","12:00","13:00","14:00","16:00","17:00","18:00","19:00"],function(v){st.h=v});
+$("nm").oninput=upd;
+function upd(){
+ var n=$("nm").value.trim(),dt=st.d?DN[st.d.getDay()]+" "+st.d.getDate()+" de "+MN[st.d.getMonth()]:"…";
+ $("sum").innerHTML='<div class="sr"><span>Servicio</span><b>'+(st.s||"—")+'</b></div><div class="sr"><span>Día</span><b>'+(st.d?dt:"—")+'</b></div><div class="sr"><span>Hora</span><b>'+(st.h||"—")+'</b></div>';
+ var a=$("go");
+ if(st.s&&st.d&&st.h&&n){
+  a.href=W+"?text="+encodeURIComponent("Hola VALÚ STUDIO, soy "+n+". Quiero reservar: "+st.s+", el "+dt+" a las "+st.h+". ¿Tienen disponibilidad?");
+  a.classList.remove("off");
+ }else{a.removeAttribute("href");a.classList.add("off")}
+}
+var hi=W+"?text="+encodeURIComponent("Hola VALÚ STUDIO, me gustaría más información.");
+$("wa2").href=hi;$("wa3").href=hi;
+upd();
+var li=0;
+function show(){var c=GC[li].split(",");$("lc").style.background="linear-gradient(145deg,"+c[0]+","+c[1]+")";$("lc").textContent=G[li]}
+G.forEach(function(g,i){
+ var b=document.createElement("button");b.className="ph";b.type="button";b.style.background="linear-gradient(145deg,"+GC[i]+")";
+ b.innerHTML="<span>"+g+"</span>";
+ b.onclick=function(){li=i;show();$("lb").classList.add("on")};
+ $("gal").appendChild(b);
+});
+$("lx").onclick=function(){$("lb").classList.remove("on")};
+$("lp").onclick=function(){li=(li+G.length-1)%G.length;show()};
+$("ln").onclick=function(){li=(li+1)%G.length;show()};
+$("lb").onclick=function(e){if(e.target===$("lb"))$("lb").classList.remove("on")};
+document.addEventListener("keydown",function(e){if(e.key==="Escape")$("lb").classList.remove("on")});
+$("cp").onclick=function(){
+ var t="VALÚ STUDIO · Agustín Yáñez 246, San Juan, 48500 Cocula, Jal. · 375 113 9302",b=this;
+ try{navigator.clipboard.writeText(t).then(function(){b.textContent="¡Copiado!"},function(){b.textContent="Cópiala manualmente"})}catch(e){b.textContent="Cópiala manualmente"}
+};
+var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in2");io.unobserve(x.target)}})},{threshold:.12});
+document.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+</script>
+</body>
+</html>
